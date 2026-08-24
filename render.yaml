@@ -1,0 +1,20 @@
+# Render Blueprint for this static site.
+# Docs: https://render.com/docs/infrastructure-as-code
+#
+# With this file committed, Render's "New + -> Blueprint" flow will read it
+# automatically and pre-fill the service config below — you just pick the
+# repo, review, and click Apply. (You can still use "New + -> Static Site"
+# and fill the same fields by hand instead; this file is a convenience, not
+# a requirement.)
+
+services:
+  - type: web
+    name: the-working-model
+    env: static
+    buildCommand: ""
+    staticPublishPath: ./
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
